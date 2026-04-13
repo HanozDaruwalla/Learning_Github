@@ -4,13 +4,14 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+        calculator_class calculator = new calculator_class();
         System.out.println(" ----------- Welcome To Calculator Program -----------");
         System.out.println("\n"); 
-        UI_Get_Calculation();
+        UI_Get_Calculation(calculator);
+
     }
 
-    private static void UI_Get_Calculation() {
-        
+    private static void UI_Get_Calculation(calculator_class calculator) { 
         double result = 0.99;
         Scanner user_input_scanner = new Scanner(System.in);
 
@@ -23,19 +24,19 @@ public class Main {
 
         switch(operation){
             case '+':
-                result = addition(num1, num2);
+                result = calculator.addition(num1, num2);
                 UI_Output(num1, operation, num2, result);
                 break;
             case '-':
-                result = subtraction(num1, num2);
+                result = calculator.subtraction(num1, num2);
                 UI_Output(num1, operation, num2, result);
                 break;
             case '*':
-                result = multiplication(num1,num2);
+                result = calculator.multiplication(num1, num2);
                 UI_Output(num1, operation, num2, result);
                 break;
             case '/':
-                result = division(num1, num2);
+                result = calculator.division(num1, num2);
                 UI_Output(num1, operation, num2, result);
                 break;
             default:                
@@ -50,25 +51,5 @@ public class Main {
         System.out.println("Result = " + result); 
     }
     
-    private static double addition(double a, double b) {
-        return a + b;
-    }
 
-    private static double subtraction(double a, double b) {
-        return a + b;
-        //change later
-    }
-
-    private static double multiplication(double a, double b) {
-        return a + b;
-        //change later    
-    }
-
-    private static double division(double a, double b) {
-        if (b == 0) {
-            throw new IllegalArgumentException("Cannot divide by zero");
-        }
-        return a + b;
-        //change later
-    }
 }
