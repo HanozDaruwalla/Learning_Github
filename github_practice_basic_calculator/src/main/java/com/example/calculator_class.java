@@ -1,9 +1,13 @@
 package com.example;
 
 public class calculator_class {
-
+    
     
     public static double addition(double a, double b) {
+        
+        try{
+            a+b
+        }
         return a + b;
     }
 
