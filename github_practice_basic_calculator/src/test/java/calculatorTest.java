@@ -13,8 +13,8 @@ public class calculatorTest{
         assertEquals (5, calculator_class.addition(0,5));
         assertEquals (-3, calculator_class.addition(-1,-2));
         assertEquals (10, calculator_class.addition(10,0));
-        assertEquals (Integer.MAX_VALUE, calculator_class.addition(Integer.MAX_VALUE, 0));
-        assertEquals (Integer.MAX_VALUE, calculator_class.addition(Integer.MAX_VALUE, 1));
+        assertEquals (Double.MAX_VALUE, calculator_class.addition(Double.MAX_VALUE, 0));
+        assertThrows(ArithmeticException.class, () -> calculator_class.addition(Double.MAX_VALUE, 1));
         assertEquals (Integer.MIN_VALUE, calculator_class.addition(Integer.MIN_VALUE,0));
     }
 

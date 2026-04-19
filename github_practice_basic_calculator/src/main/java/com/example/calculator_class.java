@@ -6,9 +6,12 @@ public class calculator_class {
     public static double addition(double a, double b) {
         
         try{
-            a+b
+            return a + b;
+            
+        }catch(ArithmeticException e){
+            throw new ArithmeticException("Double overflow");
         }
-        return a + b;
+
     }
 
     public static double subtraction(double a, double b) {
