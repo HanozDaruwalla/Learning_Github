@@ -1,18 +1,15 @@
 package com.example;
 
-public class calculator_class {
-    
+public class calculator_class {    
     
     public static double addition(double a, double b) {
-        
-        try{
-            return a + b;
-            
-        }catch(ArithmeticException e){
-            throw new ArithmeticException("Double overflow");
-        }
-
+    // Check for overflow FIRST
+    if ((b > 0 && a > Double.MAX_VALUE - b) || 
+        (b < 0 && a < -Double.MAX_VALUE - b)) {
+        throw new ArithmeticException("Double overflow");
     }
+    return a + b;  // No try-catch needed
+}
 
     public static double subtraction(double a, double b) {
         return a - b;
