@@ -27,4 +27,14 @@ public class calculatorTest{
         assertEquals(-Double.MAX_VALUE, calculator_class.subtraction(-Double.MAX_VALUE,0));
         assertEquals(-Double.MAX_VALUE, calculator_class.subtraction((-Double.MAX_VALUE +1),1));
     }
+
+    @Test
+    void multiplication(){
+        assertEquals(20,calculator_class.multiplication(10,2));
+        assertEquals(-6,calculator_class.multiplication(-2,3));
+        assertEquals(10, calculator_class.multiplication(10,1));
+        assertEquals(-Double.MAX_VALUE, calculator_class.multiplication(-Double.MAX_VALUE,1));
+        assertEquals(Double.MAX_VALUE, calculator_class.multiplication(Double.MAX_VALUE,1));
+        assertEquals(48, calculator_class.multiplication(6,8));
+    }
 }
