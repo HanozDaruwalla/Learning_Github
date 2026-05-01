@@ -37,4 +37,12 @@ public class calculatorTest{
         assertEquals(Double.MAX_VALUE, calculator_class.multiplication(Double.MAX_VALUE,1));
         assertEquals(48, calculator_class.multiplication(6,8));
     }
+
+    @Test
+    void Division(){
+        assertEquals(5, calculator_class.division(10,2));
+        assertEquals(-4, calculator_class.division(-8,2));
+        assertEquals(0, calculator_class.division(0,5));
+        assertEquals(12, calculator_class.division(144,12));
+    }
 }
