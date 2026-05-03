@@ -50,6 +50,18 @@ public class Main {
         System.out.println(num1 + " " + operation +  " " + num2 + " = " + result);
         System.out.println("Result = " + result); 
     }
+
+    public static void Ui_Continue_Query(){
+        Scanner user_input_for_continuation = new Scanner(System.in);
+        System.out.println("Do You Want To Continue? (Y/N)");
+        char user_response = user_input_for_continuation.next().charAt(0);
+       if(user_response == 'Y' || user_response == 'y'){
+            System.out.println("\n\n");
+            System.out.println(" ----------- Carrying On Calculator Program -----------");
+            UI_Get_Calculation(calculator);
+
+       } 
+    }
     
 
 }
