@@ -17,20 +17,13 @@ public class Main {
         double num1 = 0;
         double num2 = 0;
         Scanner user_input_scanner = new Scanner(System.in);
-        boolean valid_input_1 = false;
-        boolean valid_input_2 = false;
 
-
-        while(valid_input_1 == false){
-            
-            System.out.print("Enter First number (or 'Answer' for previous answer): ");
-            num1 = UI_Get_Numbers(calculator, user_input_scanner);
-        }
+        System.out.print("Enter First number (or 'Answer' for previous answer): ");
+        num1 = UI_Get_Numbers(calculator, user_input_scanner);      
         
-        while(valid_input_2 == false){
-            System.out.print("Enter Second number (or 'Answer' for previous answer): ");
-            num2 = UI_Get_Numbers(calculator, user_input_scanner);
-        }
+        System.out.print("Enter Second number (or 'Answer' for previous answer): ");
+        num2 = UI_Get_Numbers(calculator, user_input_scanner);
+        
 
 
         System.out.println("What Calculation You Want To Do? ('+' '-' '*' '/')");
