@@ -99,7 +99,13 @@ public class Main {
             System.out.println(" ----------- Carrying On Calculator Program -----------");
             UI_Get_Calculation(calculator);
 
-       } 
+       }else if(user_response == 'N' || user_response == 'n'){
+            System.out.println("\n\n");
+            System.out.println(" ----------- Ending Calculator Program -----------");
+        }else{
+            System.out.println("Invalid Input, Please Try Again");
+            Ui_Continue_Query(calculator);
+        }
     }
     
 
