@@ -98,33 +98,24 @@ public class Main {
     public static void Ui_Continue_Query(calculator_class calculator){
         Scanner user_input_for_continuation = new Scanner(System.in);
 
-
         System.out.println("Do You Want To Continue? (Y/N)");
         char user_response = user_input_for_continuation.next().charAt(0);
         user_input_for_continuation.nextLine(); //resets scanner      
-
-        Ui_Continue_Query_LOGIC(calculator, user_response);
-    } 
-
-    private static String Ui_Continue_Query_LOGIC(calculator_class calculator, char user_response) {
 
         if(user_response == 'Y' || user_response == 'y'){
             System.out.println("\n\n");
             System.out.println(" ----------- Carrying On Calculator Program -----------");
             UI_Get_Calculation(calculator);
-            return Success_String;
-
+           
        }else if(user_response == 'N' || user_response == 'n'){
             System.out.println("\n\n");
             System.out.println(" ----------- Ending Calculator Program -----------");
-            return Failure_String;
-
+         
         }else{
             System.out.println("Invalid Input, Please Try Again");
             Ui_Continue_Query(calculator);
-            return Invalid_String;
         }
-    }
+    } 
     
 
 }
