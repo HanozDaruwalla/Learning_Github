@@ -64,7 +64,7 @@ public class Main {
 
         double result = 0.99;
 
-        System.out.println("What Calculation You Want To Do? ('+' '-' '*' '/')");
+        System.out.println("\n What Calculation You Want To Do? ('+' '-' '*' '/')");
         char operation = user_input_scanner.next().charAt(0);
 
         switch(operation){
@@ -87,6 +87,8 @@ public class Main {
             default:                
                 System.out.println("Invalid Operation");
                 System.out.println("\n\n\n");
+                System.out.println("num1 = " + num1);
+                System.out.println("num2 = " + num2 +"\n");
                 return false;
 
         }
@@ -144,7 +146,7 @@ public class Main {
     public static void Ui_Continue_Query(calculator_class calculator){
         Scanner user_input_for_continuation = new Scanner(System.in);
 
-        System.out.println("Do You Want To Continue? (Y/N)");
+        System.out.println("\n\n Do You Want To Continue? (Y/N)");
         char user_response = user_input_for_continuation.next().charAt(0);
         user_input_for_continuation.nextLine(); //resets scanner      
 
