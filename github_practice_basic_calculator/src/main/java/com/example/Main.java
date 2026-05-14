@@ -44,7 +44,8 @@ public class Main {
         while(valid_input == false){ 
             System.out.print("Enter Second number (or 'Answer' for previous answer): ");
             Temp_Num_And_If_Valid_RETURNED = UI_Get_Numbers(calculator, user_input_scanner);
-            
+            System.out.print("\n");
+
             //gets number for calc later
             num2 = Double.parseDouble(Temp_Num_And_If_Valid_RETURNED.get(0));
             
@@ -53,7 +54,7 @@ public class Main {
         }
 
         valid_input = false; //resets valid input for second number input cycle
-        
+    
         
         while(valid_input == false){
             UI_Get_Operation_And_Calculate(num1, num2, calculator, user_input_scanner);
@@ -106,7 +107,7 @@ public class Main {
             
         try{
             temp_number = user_input_scanner.nextDouble();
-            System.err.println("Temp Number set to: " + temp_number);
+            //System.err.println("Temp Number set to: " + temp_number); add back if debugging
             valid_input = true;
         }catch(InputMismatchException e){
 
@@ -138,7 +139,7 @@ public class Main {
     }
 
     private static void UI_Output(double num1, char operation, double num2, double result, calculator_class calculator) {
-        System.out.println(num1 + " " + operation +  " " + num2 + " = " + result);
+        System.out.println("\n\n" +  num1 + " " + operation +  " " + num2 + " = " + result);
         System.out.println("Result = " + result); 
         Ui_Continue_Query(calculator);
     }
@@ -146,7 +147,8 @@ public class Main {
     public static void Ui_Continue_Query(calculator_class calculator){
         Scanner user_input_for_continuation = new Scanner(System.in);
 
-        System.out.println("\n\n Do You Want To Continue? (Y/N)");
+        System.out.println("\n");
+        System.out.println("Do You Want To Continue? (Y/N)");
         char user_response = user_input_for_continuation.next().charAt(0);
         user_input_for_continuation.nextLine(); //resets scanner      
 
