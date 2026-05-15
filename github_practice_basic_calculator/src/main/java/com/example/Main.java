@@ -82,9 +82,17 @@ public class Main {
                 UI_Output(num1, operation, num2, result, calculator);
                 break;
             case '/':
-                result = calculator.division(num1, num2);
-                UI_Output(num1, operation, num2, result, calculator);
+                
+                try{
+                    result = calculator.division(num1, num2);
+                    UI_Output(num1, operation, num2, result, calculator);
+                }catch(IllegalArgumentException e){
+                    System.out.println("Cannot Divide By Zero, Please Try Again");
+                    System.out.println("\n");
+                    UI_Get_Operation_And_Calculate(num1, num2, calculator, user_input_scanner);
+                }
                 break;
+
             default:                
                 System.out.println("Invalid Operation");
                 System.out.println("\n\n\n");
@@ -105,32 +113,34 @@ public class Main {
         Boolean valid_input = false;
         ArrayList<String> Temp_Num_AND_If_Valid_Input = new ArrayList<String>();
             
+
+        //     ----------------------  Is the user input a number?  ----------------------  
         try{
             temp_number = user_input_scanner.nextDouble();
-            //System.err.println("Temp Number set to: " + temp_number); add back if debugging
             valid_input = true;
-        }catch(InputMismatchException e){
+        
+        }catch(InputMismatchException e){ // --------- if not number, check if input = answer -----------
 
-            //next getsd what was last written
+            //next gets what was last written
             user_input_string = user_input_scanner.next();
 
+            //get previous answer if user input = answer
             if(user_input_string.equals("Answer") || user_input_string.equals("answer")){
                 temp_number = calculator.getPrevious_answer();
                 System.out.println("Ans (" + temp_number + ")");
                 valid_input = true;
 
-            }else{
+            }else{//invalidd input. redo
                 System.out.println("Invalid Input, Please Try Again");
                 valid_input = false;
-                //MAKE VALID REDO CYCLE !!!!!!!!!                
+                //the calling will redo the cycle if valid input is false, so no need to redo here      
             }
-            //I DONT THINK CODE 1 LINE DOWN NEEDED. SHOULD ALWAYS SET IN INCORRECT VAL
-            //temp_number = calculator.getPrevious_answer();
 
             
             //reset scanner buffer to prevent infinite loop if user input is not a number or "Answer"
             user_input_scanner.nextLine();
         }
+        //put data in arraylist for return
         Temp_Num_AND_If_Valid_Input.add(String.valueOf(temp_number));
         Temp_Num_AND_If_Valid_Input.add(String.valueOf(valid_input));
 
@@ -138,15 +148,18 @@ public class Main {
 
     }
 
+    //output calculation and result, then ask if user wants to continue
     private static void UI_Output(double num1, char operation, double num2, double result, calculator_class calculator) {
         System.out.println("\n\n" +  num1 + " " + operation +  " " + num2 + " = " + result);
         System.out.println("Result = " + result); 
         Ui_Continue_Query(calculator);
     }
 
+
     public static void Ui_Continue_Query(calculator_class calculator){
         Scanner user_input_for_continuation = new Scanner(System.in);
 
+        // -----------------------  Ask User If They Want To Continue  ----------------------
         System.out.println("\n");
         System.out.println("Do You Want To Continue? (Y/N)");
         char user_response = user_input_for_continuation.next().charAt(0);
@@ -161,6 +174,7 @@ public class Main {
             System.out.println("\n\n");
             System.out.println(" ----------- Ending Calculator Program -----------");
          
+            //           -----------------------  Invalid Input ----------------------
         }else{
             System.out.println("Invalid Input, Please Try Again");
             Ui_Continue_Query(calculator);
