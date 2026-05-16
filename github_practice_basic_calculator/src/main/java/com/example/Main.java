@@ -11,7 +11,6 @@ public class Main {
         static String Invalid_String = "Invalid";
 
     public static void main(String[] args) {
-
         calculator_class calculator = new calculator_class();
         System.out.println(" ----------- Welcome To Calculator Program -----------");
         System.out.println("\n"); 
@@ -25,6 +24,8 @@ public class Main {
         Scanner user_input_scanner = new Scanner(System.in);
         boolean valid_input = false;
         ArrayList<String> Temp_Num_And_If_Valid_RETURNED = new ArrayList<String>();
+        
+
         
         //gets num 1 and checks if valid input
         while(valid_input == false){ 
@@ -40,7 +41,8 @@ public class Main {
 
         valid_input = false; //resets valid input for second number input cycle
 
-        //gets num 1 and checks if valid input
+
+        //gets num 2 and checks if valid input
         while(valid_input == false){ 
             System.out.print("Enter Second number (or 'Answer' for previous answer): ");
             Temp_Num_And_If_Valid_RETURNED = UI_Get_Numbers(calculator, user_input_scanner);
