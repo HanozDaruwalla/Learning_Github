@@ -17,6 +17,8 @@ public class calculatorTest{
         assertEquals (10, calc_class.addition(10,0));
         assertEquals (Double.MAX_VALUE, calc_class.addition(Double.MAX_VALUE, 0));
         assertEquals (Double.MIN_VALUE, calc_class.addition(Double.MIN_VALUE,0));
+        assertThrows(ArithmeticException.class, () -> calc_class.addition(Double.MAX_VALUE, 1));
+        assertThrows(ArithmeticException.class, () -> calc_class.addition(Double.MIN_VALUE, -1));
     }
 
     // -Double.MAX_VALUE = most min value
